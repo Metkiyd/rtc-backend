@@ -1,0 +1,28 @@
+{
+  "name": "rtc-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
+    "socket.io": "^4.6.1"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metkiyd/rtc-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Metkiyd/rtc-backend/issues"
+  },
+  "homepage": "https://github.com/Metkiyd/rtc-backend#readme",
+  "devDependencies": {
+    "prettier": "^2.8.6"
+  }
+}
