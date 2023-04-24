@@ -13,7 +13,7 @@
 
 # env files
 .env*
-
+!.env.example.txt
 # misc
 .DS_Store
 package-lock.json
