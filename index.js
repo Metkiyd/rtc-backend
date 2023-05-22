@@ -55,19 +55,15 @@ io.on('connection', (socket) => {
     socket.join(roomId)
     rooms.get(roomId).get('users').set(socket.id, userName)
     const users = [...rooms.get(roomId).get('users').values()]
-    socket.broadcast.to(roomId).emit('ROOM:SET_USERS', users)
+    socket.broadcast.to(roomId).emit('ROOM:JOINED', users)
   })
   console.log(`user ${socket.id} connected`)
-
-  // socket.emit('foo', 'bar')
-  // socket.on('userFromClient', ({ id }) => {
-  //   socket.broadcast.emit('userFromServer', { id })
-  //   // const users = getUsers()
-  // })
 
   socket.on('disconnect', () => {
     rooms.forEach((value, roomId) => {
       if (value.get('users').delete(socket.id)) {
+        const users = [...value.get('users').values()]
+        socket.broadcast.to(roomId).emit('ROOM:SET_USERS', users)
       }
     })
   })
